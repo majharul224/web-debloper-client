@@ -6,6 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { FaUserAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
+import img from '../../image/img.png'
 
 const Header = () => {
   const { user, signout } = useContext(AuthContext)
@@ -27,7 +28,8 @@ const Header = () => {
     return (
     <Navbar collapseOnSelect className='mb-4' expand="lg" bg="primary" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">W.D learning</Navbar.Brand>
+      <img src={img} alt="Logo" width="50" height="24" className="d-inline-block align-text-top mx-4"/>
+        <Navbar.Brand >W.D learning</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="ms-auto">
