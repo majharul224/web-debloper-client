@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
 
 
@@ -26,19 +26,22 @@ const Login = () => {
   }
   return (
     <div className='w-50 mx-auto'>
+      <h2 className='text-success text-center'>Please Login!!</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" name='email' placeholder="Enter email" />
         </Form.Group>
-
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" name="password" placeholder="Password" />
+          
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
+        <div class="d-grid gap-2 col-6 mx-auto">
+        <p className='text-center'><Link to='/register'>please Register</Link></p>
+          <button class="btn btn-primary" type="button">LogIn</button>
+          
+        </div>
       </Form>
     </div>
   );
