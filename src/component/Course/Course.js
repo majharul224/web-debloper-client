@@ -1,10 +1,12 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Col, Container, ListGroup, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
+import CoursCard from '../CoursCard/CoursCard';
+import ListItem from '../ListItem/ListItem';
 
 const Course = () => {
-    const [course, setCourse] = useState([])
+    const [courses, setCourse] = useState([])
 
     useEffect(()=>{
         fetch('http://localhost:5000/course-categories')
@@ -15,16 +17,21 @@ const Course = () => {
         <Container>
             <Row>
                 <Col lg="9">
-                    <h2>All course- {course.length}</h2>
+                    <h2>All course- {courses.length}</h2>
+                    <div className='row row-cols-1 row-cols-md-2 g-4'>
+                        {
+                            courses.map(course=><CoursCard
+                            key={course.id}
+                            course={course}
+                            >
+                            </CoursCard>)
+                        }
+                    </div>
                 </Col>
                 <Col lg="3">
-                    <ListGroup>
-                        <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                        <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                        <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-                        <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-                    </ListGroup>
+                  <ListItem 
+                  course={courses}
+                  ></ListItem>
                 </Col>
             </Row>
         </Container>
