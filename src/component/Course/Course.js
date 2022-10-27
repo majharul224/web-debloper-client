@@ -1,18 +1,13 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useLoaderData } from 'react-router-dom';
 import CoursCard from '../CoursCard/CoursCard';
 import ListItem from '../ListItem/ListItem';
 
 const Course = () => {
-    const [courses, setCourse] = useState([])
-
-    useEffect(()=>{
-        fetch('http://localhost:5000/course-categories')
-        .then( res => res.json())
-        .then(data =>setCourse(data))
-    },[])
+    const courses = useLoaderData();
     return (
         <Container>
             <Row>

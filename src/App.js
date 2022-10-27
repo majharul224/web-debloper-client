@@ -2,6 +2,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import Blogs from './component/Blogs/Blogs';
+import CartInfo from './component/CartInfo/CartInfo';
 import Course from './component/Course/Course';
 import Home from './component/Home/Home';
 import Main from './component/Layout/Main';
@@ -30,7 +31,15 @@ function App() {
       },
       {
         path:'/course',
+        loader: () => fetch('http://localhost:5000/course-categories'),
         element:<Course></Course>
+      },
+      {
+        path:'/course/:id',
+        loader:async({ params })=>{
+          return fetch(`http://localhost:5000/course-categories/${params.id}`)
+        },
+        element:<CartInfo></CartInfo>
       },
       {
         path:'/register',

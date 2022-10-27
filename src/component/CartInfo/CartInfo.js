@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
-const CoursCard = ({ course }) => {
-    const { id,name, img, price, ditels } = course
-    // console.log(course)
+const CartInfo = () => {
+    const courses = useLoaderData();
+    const{img,name,price,ditels}=courses
     return (
         <div>
             <img src={img?.img} alt="" />
@@ -13,11 +13,10 @@ const CoursCard = ({ course }) => {
                     <h4 className="card-title">price :${price}</h4>
                     <h5 className="card-title">Name : {name}</h5>
                     <p className="card-text">{ditels}</p>
-                    <Link to={`/course/${id}`} className="btn btn-primary">Go somewhere</Link>
                 </div>
             </div>
         </div>
     );
 };
 
-export default CoursCard;
+export default CartInfo;
