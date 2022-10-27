@@ -28,6 +28,8 @@ const Header = () => {
     return (
     <Navbar collapseOnSelect className='mb-4' expand="lg" bg="primary" variant="dark">
       <Container>
+        {/* //nav logo */}
+
       <img src={img} alt="Logo" width="50" height="24" className="d-inline-block align-text-top mx-4"/>
         <Navbar.Brand >W.D learning</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -39,6 +41,8 @@ const Header = () => {
             <Nav.Link as={Link} to='/blogs'>Blogs</Nav.Link>
             <Nav.Link as={Link} to='/register'>Register</Nav.Link>
             <>
+
+            {/* login profile img and name */}
                 {
                     user?.email ?
                   <>
@@ -60,20 +64,7 @@ const Header = () => {
              ></Image> 
              : <FaUserAlt></FaUserAlt>
             } 
-                {/* <>
-                {
-                    user?.uid ?
-                  <>
-                      <span>{user?.displayName}</span>
-                    <button onClick={handleSignOut} className="btn btn-sm">Log out</button>
-                  </>
-                    : <>
-                    <Link to='/login'>
-                        <button className='btn btn-sm'>Log In</button>
-                    </Link>
-                    </>
-                }
-                </> */}
+               
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -11,15 +11,19 @@ import { AuthContext } from '../../context/UserContext';
 const Register = () => {
   const { signup, signinGoogle, profileUpdate, signinGithub } = useContext(AuthContext)
 
-  // email registion
+  // email registion form
+
   const handleSubmit = event => {
+
     event.preventDefault()
     const form = event.target
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, email, password)
+    // console.log(name, email, password)
+
     signup(email, password)
+
       .then(result => {
         const user = result.user
         profileUpdate(name)
@@ -70,6 +74,9 @@ const Register = () => {
 
   }
   return (
+    
+    // register form
+
     <div className='w-50 mx-auto'>
       <h2 className='text-success text-center'>Please Register!!</h2>
       <Form onSubmit={handleSubmit} className="m-auto">

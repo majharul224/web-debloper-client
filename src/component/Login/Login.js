@@ -1,30 +1,35 @@
 import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/UserContext';
 
 
 const Login = () => {
   const { signin } = useContext(AuthContext)
+
   const naviget = useNavigate()
+
+  // login form submit
+
   const handleSubmit = event => {
     event.preventDefault()
     const form = event.target
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password)
+    // console.log(email, password)
+
     signin(email, password)
       .then(result => {
         const user = result.user
-        form.reset()
         naviget('/')
         console.log(user)
+        form.reset()
       })
-      .catch(error => {
-        console.error(error)
-      })
+      .catch(error => toast.error(error.message))
   }
   return (
+    // login form
     <div className='w-50 mx-auto'>
       <h2 className='text-success text-center'>Please Login!!</h2>
       <Form onSubmit={handleSubmit}>
@@ -36,7 +41,7 @@ const Login = () => {
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" name="password" placeholder="Password" />
           <div className="d-grid gap-2 col-6 mx-auto">
-       
+          <p className='text-center my-2'><Link to='/register'>please register</Link></p>
           <button  className="btn btn-primary" type="submit">LogIn</button>
         </div>
         </Form.Group>

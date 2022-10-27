@@ -5,6 +5,7 @@ const CoursCard = ({ course }) => {
     const { id,name, img, price, ditels } = course
     // console.log(course)
     return (
+        // course card
         <div>
             <img src={img?.img} alt="" />
             <div className="card" style={{ width: "18rem" }}>

@@ -5,6 +5,7 @@ const CartInfo = () => {
     const courses = useLoaderData();
     const{img,name,price,ditels}=courses
     return (
+        // course card
         <div>
             <img src={img?.img} alt="" />
             <div className="card" style={{ width: "18rem" }}>

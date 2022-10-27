@@ -14,15 +14,23 @@ const UserContext = ({ children }) => {
 
     const [loding, setLoding] = useState(true)
 
+    // signup authprovider
+
     const signup = (email, password) => {
         // return console.log("amit")
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
+
+
+    // signin authprovider
+
     const signin = (email, password) => {
         // return console.log("amit")
         return signInWithEmailAndPassword(auth, email, password)
     }
+
+// profile auth
 
     const profileUpdate=(name)=>{
         return updateProfile(auth.currentUser, {
@@ -31,16 +39,22 @@ const UserContext = ({ children }) => {
           });
     }
 
+    // sign auth
+
     const signout = () => {
         // return console.log("amit")
         return signOut(auth)
     }
+
+    // google authprovider
 
     const signinGoogle = () => {
 
         return signInWithPopup(auth, provider)
     }
 
+    // github authprovider
+    
     const signinGithub = () => {
 
         return signInWithPopup(auth, gitProvider)
