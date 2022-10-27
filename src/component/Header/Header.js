@@ -7,6 +7,7 @@ import { FaUserAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
 import img from '../../image/img.png'
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
 const Header = () => {
   const { user, signout } = useContext(AuthContext)
@@ -65,6 +66,7 @@ const Header = () => {
              : <FaUserAlt></FaUserAlt>
             } 
                
+             <ThemeToggle></ThemeToggle>
           </Nav>
         </Navbar.Collapse>
       </Container>
