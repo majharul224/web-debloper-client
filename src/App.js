@@ -19,12 +19,13 @@ function App() {
     children:[
       {
         path:'/',
-        element:<Home></Home>
+        loader: () => fetch('http://localhost:5000/course-categories'),
+        element:<Course></Course>
       },
-      {
-        path:'/home',
-        element:<Home></Home>
-      },
+      // {
+      //   path:'/home',
+      //   element:<Home></Home>
+      // },
       {
         path:'/blogs',
         element:<Blogs></Blogs>
