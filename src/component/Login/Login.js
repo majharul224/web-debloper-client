@@ -35,13 +35,12 @@ const Login = () => {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" name="password" placeholder="Password" />
-          
-        </Form.Group>
-        <div class="d-grid gap-2 col-6 mx-auto">
-        <p className='text-center'><Link to='/register'>please Register</Link></p>
-          <button class="btn btn-primary" type="button">LogIn</button>
-          
+          <div className="d-grid gap-2 col-6 mx-auto">
+       
+          <button  className="btn btn-primary" type="submit">LogIn</button>
         </div>
+        </Form.Group>
+       
       </Form>
     </div>
   );

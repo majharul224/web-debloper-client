@@ -1,12 +1,21 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { Col, Container, ListGroup, Row } from 'react-bootstrap';
 
 const Course = () => {
+    const [course, setCourse] = useState([])
+
+    useEffect(()=>{
+        fetch('http://localhost:5000/course-categories')
+        .then( res => res.json())
+        .then(data =>setCourse(data))
+    },[])
     return (
         <Container>
             <Row>
                 <Col lg="9">
-                    <h1>main</h1>
+                    <h2>All course- {course.length}</h2>
                 </Col>
                 <Col lg="3">
                     <ListGroup>

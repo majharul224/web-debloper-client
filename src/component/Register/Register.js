@@ -92,8 +92,8 @@ const Register = () => {
       </Form>
       <div className="d-grid gap-2 col-6 mx-auto">
         <p className='text-center'>------- 0 ------</p>
-          <button onClick={handleGoogle} class="btn btn-primary" type="submit"> <BsGoogle/> Google SignIn</button>
-          <button onClick={handleGithub} class="btn btn-primary" type="submit">
+          <button onClick={handleGoogle} className="btn btn-primary" type="submit"> <BsGoogle/> Google SignIn</button>
+          <button onClick={handleGithub} className="btn btn-primary" type="submit">
             <BsGithub/>  Github SignIn</button>
         </div>
     </div>
