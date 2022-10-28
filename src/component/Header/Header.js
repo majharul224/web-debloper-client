@@ -41,23 +41,27 @@ const Header = () => {
             <Nav.Link as={Link} to='/faq'>FAQ</Nav.Link>
             <Nav.Link as={Link} to='/blogs'>Blogs</Nav.Link>
             <Nav.Link as={Link} to='/register'>Register</Nav.Link>
-            <>
+            
+        <div className='d-flex align-items-center'>
 
-            {/* login profile img and name */}
-                {
-                    user?.email ?
-                  <>
-                      <span>{user?.displayName}</span>
-                    <button onClick={handleSignOut} className="btn btn-sm">Log out</button>
-                  </>
-                    : <>
-                    <Link to='/login'>
-                        <button className='btn btn-sm'>Log In</button>
-                    </Link>
-                    </>
-                }
-                </>
-          {user?.photoURL ? 
+        <>
+
+{/* login profile img and name */}
+    {
+        user?.email ?
+      <>
+          <span>{user?.displayName}</span>
+        <button onClick={handleSignOut} className="btn btn-sm">Log out</button>
+      </>
+        : <>
+        <Link to='/login'>
+            <button className='btn btn-sm'>Log In</button>
+        </Link>
+        </>
+    }
+    </>
+
+        {user?.photoURL ? 
             <Image
             style={{height:'30px'}}
              roundedCircle src={user?.photoURL}
@@ -65,8 +69,8 @@ const Header = () => {
              ></Image> 
              : <FaUserAlt></FaUserAlt>
             } 
-               
              <ThemeToggle></ThemeToggle>
+        </div>
           </Nav>
         </Navbar.Collapse>
       </Container>
