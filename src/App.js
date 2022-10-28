@@ -8,6 +8,7 @@ import Home from './component/Home/Home';
 import Main from './component/Layout/Main';
 import Login from './component/Login/Login';
 import Notfound from './component/Notfound/Notfound';
+import Privat from './component/Privat/Privat';
 import Register from './component/Register/Register';
 
 
@@ -19,7 +20,7 @@ function App() {
     children:[
       {
         path:'/',
-        loader: () => fetch('http://localhost:5000/course-categories'),
+        loader: () => fetch('https://wd-learning-server.vercel.app/course-categories'),
         element:<Course></Course>
       },
       // {
@@ -32,15 +33,15 @@ function App() {
       },
       {
         path:'/course',
-        loader: () => fetch('http://localhost:5000/course-categories'),
+        loader: () => fetch('https://wd-learning-server.vercel.app/course-categories'),
         element:<Course></Course>
       },
       {
         path:'/course/:id',
         loader:async({ params })=>{
-          return fetch(`http://localhost:5000/course-categories/${params.id}`)
+          return fetch(`https://wd-learning-server.vercel.app/course-categories/${params.id}`)
         },
-        element:<CartInfo></CartInfo>
+        element:<Privat><CartInfo></CartInfo></Privat>
       },
       {
         path:'/register',

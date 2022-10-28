@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import CoursCard from '../CoursCard/CoursCard';
 import ListItem from '../ListItem/ListItem';
 

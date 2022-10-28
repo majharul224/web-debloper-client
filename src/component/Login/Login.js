@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/UserContext';
 
@@ -8,7 +8,9 @@ import { AuthContext } from '../../context/UserContext';
 const Login = () => {
   const { signin } = useContext(AuthContext)
 
-  const naviget = useNavigate()
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location?.state?.from?.pathname || "/";
 
   // login form submit
 
@@ -22,8 +24,7 @@ const Login = () => {
     signin(email, password)
       .then(result => {
         const user = result.user
-        naviget('/')
-        console.log(user)
+        navigate(from, { replace: true });
         form.reset()
       })
       .catch(error => toast.error(error.message))
