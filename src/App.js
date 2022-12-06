@@ -23,10 +23,6 @@ function App() {
         loader: () => fetch('https://wd-learning-server.vercel.app/course-categories'),
         element:<Course></Course>
       },
-      // {
-      //   path:'/home',
-      //   element:<Home></Home>
-      // },
       {
         path:'/blogs',
         element:<Blogs></Blogs>
